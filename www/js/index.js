@@ -34,40 +34,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://data.bbc.co.uk/locservices-locator/locations?apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi&vv=2&format=json&order=importance&filter=domestic&longitude=-3.178199&latitude=51.485499&rows=1", false);
-        xhr.send();
-
-        var obj = JSON.parse(xhr.responseText);
-
-        document.getElementById("location").innerHTML = obj.response.content.locations.locations[0].name;
-        document.getElementById("city").innerHTML = obj.response.content.locations.locations[0].container;
-
-        //var xhr = new XMLHttpRequest();
-        
-        var keywords = 'London'; //obj.response.content.locations.locations[0].name; //'London';
-        
-        /*if (typeof keywords === undefined) {
-            keywords = obj.response.content.locations.locations[0].container;
-        };*/
-
-        var product = 'NewsWeb';
-        var content_format = 'TextualFormat';
-        var recent_first = 'yes';
-
-        var url = "http://data.bbc.co.uk/bbcrd-juicer/articles.json?text=" + keywords + "&product[]=" + product + "&content_format[]=" + content_format + "&recent_first=" + recent_first + "&apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi";
-
-        xhr.open("GET", url, false);
-        xhr.send();
-
-        var obj2 = JSON.parse(xhr.responseText);
-
-        xhr.open("GET", "http://data.bbc.co.uk/bbcrd-juicer/articles/" + obj2.articles[1].cps_id + ".json?apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi", false);
-        xhr.send();
-        var obj3 = JSON.parse(xhr.responseText);
-        document.getElementById("title").innerHTML = obj3.article.title;
-        document.getElementById("body").innerHTML = obj3.article.body;
-
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

@@ -1,44 +1,161 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    <title>BBC newsHACK</title>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-                <p id="location">location</p>
-                <p id="city">city</p>
-                <p id="coord">coord</p>
+    <!-- Theme CSS -->
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/material-wfont.min.css" rel="stylesheet">
+	
+    <script type="text/javascript" src="js/index.js"></script>
 
-                <p id="title">title</p>
-                <p id="body">body</p>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-warning navbar-material-red">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+
+	<a class="navbar-brand" rel="home" href="#" title="SUCS">
+        	<img style="height: 40px; margin-top: -5px;"
+             	src="res/newsHACK.png">
+    	</a>
 
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <div id="navbar" class="navbar-collapse collapse  ">
+          <ul class="nav navbar-nav">
+            <li><a href="">HOME</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <h2 class="headline" id="headline-1">Announcements</h2>
+                <p class="article" id="article-1">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. :P</p>
+                
+            </div>
+				<div class="panel-footer"><a class="btn btn-info btn-material-red btn-not" href="#" role="button">&laquo; NOT INTERESTED</a></p>
+			</div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class=" panel-body">
+                <h2 class="headline">BOB</h2>
+                <p class="article"></p>
+            </div>
+			<div class="panel-footer"><p><a class="btn btn-info btn-material-red btn-not" href="#" role="button">&laquo; NOT INTERESTED</a></p>
+			</div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <h2 class="headline">BOB2</h2>
+                  <p class="article">Bob 2's text</p>
+				  </div>
+			<div class="panel-footer"><a class="btn btn-info btn-material-red btn-not" href="#" role="button">&laquo; NOT INTERESTED</a>
+			</div>
+              </div>
+			 
+          </div>  
+        </div>
+
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/ripples.min.js"></script>
+    <script src="js/material.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $.material.init();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://data.bbc.co.uk/locservices-locator/locations?apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi&vv=2&format=json&order=importance&filter=domestic&longitude=-3.178199&latitude=51.485499&rows=1", false);
+        xhr.send();
+
+        var obj = JSON.parse(xhr.responseText);
+
+        //document.getElementById("location").innerHTML = obj.response.content.locations.locations[0].name;
+        //document.getElementById("city").innerHTML = obj.response.content.locations.locations[0].container;
+
+        //var xhr = new XMLHttpRequest();
+        
+        var keywords = 'London'; //obj.response.content.locations.locations[0].name; //'London';
+        
+        /*if (typeof keywords === undefined) {
+            keywords = obj.response.content.locations.locations[0].container;
+        }; */
+
+        var product = 'NewsWeb';
+        var content_format = 'TextualFormat';
+        var recent_first = 'yes';
+
+        var url = "http://data.bbc.co.uk/bbcrd-juicer/articles.json?text=" + keywords + "&product[]=" + product + "&content_format[]=" + content_format + "&recent_first=" + recent_first + "&apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi";
+
+        xhr.open("GET", url, false);
+        xhr.send();
+
+        var obj2 = JSON.parse(xhr.responseText);
+
+        xhr.open("GET", "http://data.bbc.co.uk/bbcrd-juicer/articles/" + obj2.articles[1].cps_id + ".json?apikey=YB0MY3VMHyllzPqEf5alVj5bUvGpvDVi", false);
+        xhr.send();
+        var obj3 = JSON.parse(xhr.responseText);
+        document.getElementById("headline-1").innerHTML = obj3.article.title;
+        document.getElementById("article-1").innerHTML = obj3.article.body;
+
+        $('.article').hide();
+    });
+
+	$('.headline').click(function(e){
+        $(this).next('.article').slideToggle(500);
+	});
+		
+			
+	$('.btn-not').click(function(e){
+	$(e.target).parent().parent().parent().remove();
+	 //$( "div" ).remove(".panel-default " + button.target);
+	}); 
+    </script>
+  </body>
 </html>
